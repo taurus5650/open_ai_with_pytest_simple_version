@@ -10,9 +10,9 @@ class CartAPI(APIRequest):
     def __init__(self, waitingTime=5):
         super().__init__(waiting_time=waitingTime)
 
-    def post_cart(self, cart_id: int, userId: int, products: dict):
+    def post_cart(self, cartId: int, userId: int, products: dict):
         body = {
-            "id": cart_id,
+            "id": cartId,
             "userId": userId,
             "products": products
         }

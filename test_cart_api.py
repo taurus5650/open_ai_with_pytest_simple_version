@@ -6,7 +6,7 @@ class TestCase:
 
     def test_something(self):
         resp = self.api.post_cart(
-            id=1,
+            cartId=1,
             userId=1,
-            prducts=[{"id": 1, "title": "testing"}]
+            products=[{"id": 1, "title": "testing"}]
         )
