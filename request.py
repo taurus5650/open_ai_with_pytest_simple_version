@@ -46,9 +46,10 @@ class APIRequest:
         if request_body:
             request_body = json.loads(request_body)
 
-        if isinstance(response_body, dict):
-            response_body = json.dumps(response.json(), indent=4, ensure_ascii=False)
-        else:
+        try:
+            parsed_body = response.json()
+            response_body = json.dumps(parsed_body, indent=4, ensure_ascii=False)
+        except ValueError:
             response_body = response.text
 
         format_header = lambda x_item: '\n'.join(f'{k}: {v}' for k, v in x_item.items())
