@@ -5,8 +5,9 @@ import textwrap
 
 class APIRequest:
 
-    def __init__(self):
+    def __init__(self, waiting_time=None):
         self._session = requests.Session()
+        self._waiting_time = waiting_time
 
     def _send_request(self, method: str, url: str, **kwargs):
         try:
