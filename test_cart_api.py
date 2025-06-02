@@ -44,7 +44,7 @@ class TestCase:
 
     @allure.feature('test_with_ai')
     def test_with_ai(self):
-        test_cases_str = self.open_ai_client.ai_generate_test_cases(
+        test_cases_str = self.open_ai_client.generate_api_test_cases(
             method=self.PROMPT['method'],
             api_path=self.PROMPT['api_path'],
             request_sample=self.PROMPT['request_sample'],
