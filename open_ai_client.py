@@ -8,6 +8,7 @@ class OpenAIClient:
 
     def generate_api_test_cases(
             self, method: str, api_path: str, request_sample: dict, response_sample: dict, resp_err_code: str = None):
+        """Setup AI chat content, to generate API test cases."""
 
         user_prompt_content = textwrap.dedent(
             """
