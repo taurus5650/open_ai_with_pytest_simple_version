@@ -1,12 +1,15 @@
 import os
 import textwrap
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
 
 class OpenAIClient:
     def __init__(self, api_key=None):
         if api_key is None:
+            load_dotenv()
+            # print('OPENAI_API_KEY:', os.getenv('OPENAI_API_KEY'))
             api_key = os.getenv('OPENAI_API_KEY')
         self.client = OpenAI(api_key=api_key)
 
