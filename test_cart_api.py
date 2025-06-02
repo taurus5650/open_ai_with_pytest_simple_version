@@ -1,7 +1,7 @@
 import allure
 
 from cart_api import CartAPI
-from open_ai import OpenAIClient
+from open_ai_client import OpenAIClient
 
 
 class TestCase:
