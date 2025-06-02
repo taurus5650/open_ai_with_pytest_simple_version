@@ -1,6 +1,7 @@
-from openai import OpenAI
-import textwrap
 import os
+import textwrap
+
+from openai import OpenAI
 
 
 class OpenAIClient:
