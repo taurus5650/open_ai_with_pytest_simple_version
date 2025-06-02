@@ -1,9 +1,12 @@
 from openai import OpenAI
 import textwrap
+import os
 
 
 class OpenAIClient:
-    def __init__(self, api_key='xxxx'):
+    def __init__(self, api_key=None):
+        if api_key is None:
+            api_key = os.getenv('OPENAI_API_KEY')
         self.client = OpenAI(api_key=api_key)
 
     def generate_api_test_cases(
@@ -32,7 +35,7 @@ class OpenAIClient:
             }
         ]
         response = self.client.chat.completions.create(
-            model='gpt-4.1-mini',
+            model='gpt-4.1-nano',
             messages=prompt,
             temperature=0.3,
             max_tokens=10
