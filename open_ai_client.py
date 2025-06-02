@@ -27,6 +27,13 @@ class OpenAIClient:
             # print('Response string was:', response_str)
             raise
 
+    def print_test_cases(self, test_case: dict):
+        print('\n','-' * 5)
+        print(f"Test case: {test_case.get('test_case_name', 'unnamed')}")
+        print("Input:", json.dumps(test_case['input'], indent=2))
+        print("Expected:", json.dumps(test_case['expected'], indent=2))
+        print('-' * 5)
+
     def generate_api_test_cases(
             self, method: str, api_path: str, request_sample: dict, response_sample: dict, max_cases_number: int,
             max_tokens: int = 1500, resp_err_code: str = None):
