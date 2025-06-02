@@ -1,6 +1,7 @@
-import requests
 import json
 import textwrap
+
+import requests
 
 
 class APIRequest:
@@ -17,28 +18,20 @@ class APIRequest:
                 **kwargs
             )
             self._debug_print(response=response)
+            return response
 
         except requests.exceptions.RequestException as e:
-
-            response = None
-
-            if debug:
-                print(textwrap.dedent(
-                    """
-                    ---------------- response ----------------
-                    Request Error
-                    {method} {url}
-                    Kwargs: {kwargsstr}
-                    Error : {e}
-                    Response: {response}
-                    """
-                ).format(
-                    method=method,
-                    url=url,
-                    e=str(e),
-                    kwargsstr=f'{kwargs}',
-                    resp=response
-                ))
+            print(textwrap.dedent(
+                f"""
+                ---------------- response ----------------
+                Request Error
+                {method} {url}
+                Kwargs: {kwargs}
+                Error : {e}
+                Response: None
+                """
+            ))
+            return None
 
     def _debug_print(self, response: requests.Response):
         request_body = response.request.body
