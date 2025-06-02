@@ -3,10 +3,12 @@ import textwrap
 
 
 class OpenAIClient:
-    def __init__(self, api_key="xxxx"):
+    def __init__(self, api_key='xxxx'):
         self.client = OpenAI(api_key=api_key)
 
-    def generate_api_test_cases(self, method: str, api_path: str, request_sample: dict, response_sample: dict, resp_err_code: str = None):
+    def generate_api_test_cases(
+            self, method: str, api_path: str, request_sample: dict, response_sample: dict, resp_err_code: str = None):
+
         user_prompt_content = textwrap.dedent(
             """
             Please according the API sample to generate test case:
