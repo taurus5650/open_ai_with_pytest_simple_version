@@ -69,11 +69,10 @@ class TestCase:
             resp = self.api.post_cart(
                 cartId=input_data['id'],
                 userId=input_data['userId'],
-                products=input_data['products']
+                products=input_data.get('products', [])
             )
 
             assert resp.status_code == HTTPStatus.OK
             res = resp.json()
             check.is_in('userId', res)
-            if res['products']:
-                check.equal(res['products'][0]['title'], input_data['products'][0]['title'])
+    

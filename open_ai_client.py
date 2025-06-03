@@ -28,11 +28,11 @@ class OpenAIClient:
             raise
 
     def print_test_cases(self, test_case: dict):
-        print('\n','-' * 5)
-        print(f"Test case: {test_case.get('test_case_name', 'unnamed')}")
+        print('\n','-' * 40)
+        print(f"▶ Test case: {test_case.get('test_case_name', 'unnamed')}")
         print("Input:", json.dumps(test_case['input'], indent=2))
         print("Expected:", json.dumps(test_case['expected'], indent=2))
-        print('-' * 5)
+        print('-' * 40)
 
     def generate_api_test_cases(
             self, method: str, api_path: str, request_sample: dict, response_sample: dict, max_cases_number: int,
@@ -40,12 +40,12 @@ class OpenAIClient:
         """Setup AI chat content, to generate API test cases."""
 
         user_prompt_content = textwrap.dedent(f"""
-            You are a Senior Software QA Engineer who designs test cases.
-            Given the API details below, generate a JSON array of test cases.
+            You're a Senior SDET who designs test cases.
+            Given the API details below, generate the test cases.
             Each test case should have 'input' and 'expected' fields.
             Return ONLY a valid JSON array, without any extra text or explanation.
             Output MUST end with closing square bracket: `]`
-            ONLY GENERATE {max_cases_number} CASES
+            ONLY GENERATE P0 CASES, AND {max_cases_number} CASES.
 
             Method: {method}
             API path: {api_path}
