@@ -75,4 +75,9 @@ class TestCase:
             assert resp.status_code == HTTPStatus.OK
             res = resp.json()
             check.is_in('userId', res)
-    
+
+            if input_data.get('products'):
+                check.equal(res['products'][0]['title'], input_data['products'][0]['title'])
+                check.equal(res['products'][0]['category'], input_data['products'][0]['category'])
+            else:
+                check.equal(res['products'], [])
