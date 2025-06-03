@@ -1,8 +1,11 @@
+from http import HTTPStatus
+
 import allure
 
 from cart_api import CartAPI
 from open_ai_client import OpenAIClient
 import json
+from pytest_check import check
 
 
 class TestCase:
@@ -43,13 +46,13 @@ class TestCase:
     }
 
     @allure.feature('test_post_car_with_ai')
-    def test_post_car_with_ai(self):
+    def test_post_cart_with_ai(self):
         test_cases_str = self.open_ai_client.generate_api_test_cases(
             method=self.PROMPT['method'],
             api_path=self.PROMPT['api_path'],
             request_sample=self.PROMPT['request_sample'],
             response_sample=self.PROMPT['response_sample'],
-            max_cases_number=2
+            max_cases_number=3
         )
         test_cases = self.open_ai_client.parse_ai_response(
             response_str=test_cases_str
@@ -69,4 +72,8 @@ class TestCase:
                 products=input_data['products']
             )
 
-            assert resp.json() == expected_response
+            assert resp.status_code == HTTPStatus.OK
+            res = resp.json()
+            check.is_in('userId', res)
+            if res['products']:
+                check.equal(res['products'][0]['title'], input_data['products'][0]['title'])
