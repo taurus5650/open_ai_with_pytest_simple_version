@@ -82,3 +82,26 @@ class TestCase:
                 check.equal(res['products'][0]['category'], input_data['products'][0]['category'])
             else:
                 check.equal(res['products'], [])
+
+    @allure.feature('test_post_cart_delete_after_added')
+    def test_add_product_then_delete_then_add_again_successfully(self):
+        """ Expand with Human-Designed Cases """
+
+        # 1. Add to cart
+        # ... ...
+
+        # 2. Delete the cart's products API
+        # ... ...
+
+        # 3. Add to cart again
+        resp = self.api.post_cart(
+            cartId=input_data['id'],
+            userId=input_data['userId'],
+            products=input_data.get('products', [])
+        )
+
+        assert resp.status_code == HTTPStatus.OK
+        res = resp.json()
+
+        # Start to assertion
+        # ... ...
