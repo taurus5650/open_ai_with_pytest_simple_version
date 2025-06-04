@@ -1,1 +1,2 @@
-# deepseek_with_python_pytest
+# Software testing in OpenAI & Pytest
+
