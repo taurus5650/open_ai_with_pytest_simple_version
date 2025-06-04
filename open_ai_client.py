@@ -28,10 +28,10 @@ class OpenAIClient:
             raise
 
     def print_test_cases(self, test_case: dict):
-        print('\n','-' * 40)
+        print('-' * 40)
         print(f"▶ Test case: {test_case.get('test_case_name', 'unnamed')}")
-        print("Input:", json.dumps(test_case['input'], indent=2))
-        print("Expected:", json.dumps(test_case['expected'], indent=2))
+        # print("Input:", json.dumps(test_case['input'], indent=2))
+        # print("Expected:", json.dumps(test_case['expected'], indent=2))
         print('-' * 40)
 
     def generate_api_test_cases(
