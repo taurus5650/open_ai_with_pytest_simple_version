@@ -1,11 +1,10 @@
 from http import HTTPStatus
 
 import allure
+from pytest_check import check
 
 from cart_api import CartAPI
 from open_ai_client import OpenAIClient
-import json
-from pytest_check import check
 
 
 class TestCase:
@@ -46,7 +45,9 @@ class TestCase:
     }
 
     @allure.feature('test_post_car_with_ai')
-    def test_post_cart_with_ai(self):
+    def test_with_ai(self):
+        """ Let OpenAI Build and Verify Basic Test Cases """
+
         test_cases_str = self.open_ai_client.generate_api_test_cases(
             method=self.PROMPT['method'],
             api_path=self.PROMPT['api_path'],
