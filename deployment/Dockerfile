@@ -13,3 +13,5 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV TZ=Asia/Taipei
+
+CMD ["tail", "-f", "/dev/null"]

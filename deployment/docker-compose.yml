@@ -1,0 +1,17 @@
+services:
+  app:
+    image: open_ai_with_python_pytest_img:latest
+    container_name: open_ai_with_python_pytest
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - deployment/.env
+    environment:
+      - FLASK_APP=run.py
+      - FLASK_ENV=development
+    volumes:
+      - ../:/app
+    ports:
+      - "9014:9014"
