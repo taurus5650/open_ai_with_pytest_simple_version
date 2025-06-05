@@ -19,7 +19,6 @@ class OpenAIClient:
         )
 
     def parse_ai_response(self, response_str: str):
-        # print('AI return response string:', response_str)
         try:
             return json5.loads(response_str)
         except ValueError as e:
