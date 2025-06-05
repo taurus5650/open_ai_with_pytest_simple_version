@@ -1,21 +1,21 @@
+import json
 import os
 import textwrap
 
+import json5
 from dotenv import load_dotenv
 from openai import OpenAI
-import json
-import json5
 
 
 class OpenAIClient:
     def __init__(self, api_key=None):
         if api_key is None:
-            load_dotenv()
+            load_dotenv(dotenv_path='deployment/.env')
             # print('OPENAI_API_KEY:', os.getenv('OPENAI_API_KEY'))
             api_key = os.getenv('OPENAI_API_KEY')
         self.client = OpenAI(
             api_key=api_key,
-            base_url='https://api.chatanywhere.tech/v1'
+            base_url='https://free.v36.cm/v1/'
         )
 
     def parse_ai_response(self, response_str: str):
@@ -28,6 +28,7 @@ class OpenAIClient:
             raise
 
     def print_test_cases(self, test_case: dict):
+        print()
         print('-' * 40)
         print(f"▶ Test case: {test_case.get('test_case_name', 'unnamed')}")
         # print("Input:", json.dumps(test_case['input'], indent=2))
@@ -78,9 +79,10 @@ class OpenAIClient:
             }
         ]
         response = self.client.chat.completions.create(
-            model='gpt-4.1-nano',
+            model='gpt-3.5-turbo',
             messages=prompt,
             temperature=0.3,
             max_tokens=max_tokens
         )
         return response.choices[0].message.content
+
