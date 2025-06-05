@@ -15,7 +15,7 @@ class OpenAIClient:
             api_key = os.getenv('OPENAI_API_KEY')
         self.client = OpenAI(
             api_key=api_key,
-            base_url='https://free.v36.cm/v1/'
+            base_url='https://free.v36.cm/v1/' # https://api.chatanywhere.tech/v1
         )
 
     def parse_ai_response(self, response_str: str):
