@@ -1,2 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-" Let OpenAI Build and Verify Basic Test Cases ","9713","test_with_ai","","Thu Jun 05 23:39:16 CST 2025","passed","Thu Jun 05 23:39:25 CST 2025","TestCase","test_post_cart","",""
