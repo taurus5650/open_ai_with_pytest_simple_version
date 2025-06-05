@@ -44,7 +44,7 @@ class TestCase:
         },
     }
 
-    @allure.feature('test_post_car_with_ai')
+    @allure.title('test_with_ai')
     def test_with_ai(self):
         """ Let OpenAI Build and Verify Basic Test Cases """
 
@@ -60,30 +60,31 @@ class TestCase:
         )
 
         for case in test_cases:
-            self.open_ai_client.print_test_cases(
-                test_case=case
-            )
-            input_data = case['input']
-            expected_status = case['expected']['status_code']
-            expected_response = case['expected']['response']
+            with allure.step(case.get('test_case_name', 'unnamed')):
+                self.open_ai_client.print_test_cases(
+                    test_case=case
+                )
+                input_data = case['input']
+                expected_status = case['expected']['status_code']
+                expected_response = case['expected']['response']
 
-            resp = self.api.post_cart(
-                cartId=input_data['id'],
-                userId=input_data['userId'],
-                products=input_data.get('products', [])
-            )
+                resp = self.api.post_cart(
+                    cartId=input_data['id'],
+                    userId=input_data['userId'],
+                    products=input_data.get('products', [])
+                )
 
-            assert resp.status_code == HTTPStatus.OK
-            res = resp.json()
-            check.is_in('userId', res)
+                assert resp.status_code == HTTPStatus.OK
+                res = resp.json()
+                check.is_in('userId', res)
 
-            if input_data.get('products'):
-                check.equal(res['products'][0]['title'], input_data['products'][0]['title'])
-                check.equal(res['products'][0]['category'], input_data['products'][0]['category'])
-            else:
-                check.equal(res['products'], [])
+                if input_data.get('products'):
+                    check.equal(res['products'][0]['title'], input_data['products'][0]['title'])
+                    check.equal(res['products'][0]['category'], input_data['products'][0]['category'])
+                else:
+                    check.equal(res['products'], [])
 
-    @allure.feature('test_post_cart_delete_after_added')
+    @allure.title('test_add_product_then_delete_then_add_again_successfully')
     def test_add_product_then_delete_then_add_again_successfully(self):
         """ Expand with Human-Designed Cases """
 
@@ -95,9 +96,9 @@ class TestCase:
 
         # 3. Add to cart again
         resp = self.api.post_cart(
-            cartId=input_data['id'],
-            userId=input_data['userId'],
-            products=input_data.get('products', [])
+            cartId=91,
+            userId=123,
+            products=[]
         )
 
         assert resp.status_code == HTTPStatus.OK
