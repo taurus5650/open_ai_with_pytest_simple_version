@@ -25,6 +25,7 @@ OPENAI_API_KEY=sk-xxxxxxx
 ```commandline
 $ make run-docker
 ```
+![MakeRun.jpg](readme/MakeRun.jpg)
 
 3. Run the command line on Docker's terminal.
 ```commandline
