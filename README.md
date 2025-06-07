@@ -31,6 +31,7 @@ $ make run-docker
 ```commandline
 $ pytest -v -s
 ```
+![DockerTerminal.jpg](readme/DockerTerminal.jpg)
 
 ## Result
 ![AllureResult.png](readme/AllureResult.png)
