@@ -7,7 +7,7 @@ services:
       dockerfile: deployment/Dockerfile
     restart: unless-stopped
     env_file:
-      - deployment/.env
+      - .env
     environment:
       - FLASK_APP=run.py
       - FLASK_ENV=development
