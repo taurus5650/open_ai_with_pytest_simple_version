@@ -21,4 +21,10 @@ OPENAI_API_KEY=sk-xxxxxxx
 ```
 ![OpenApiKey.jpg](readme/OpenApiKey.jpg)
 
+2. Run the command line in terminal.
+```commandline
+$ make run-docker
+```
+
+
 
