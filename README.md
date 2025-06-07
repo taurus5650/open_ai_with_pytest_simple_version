@@ -31,5 +31,9 @@ $ make run-docker
 $ pytest -v -s
 ```
 
+## Result
+![AllureResult.png](readme/AllureResult.png)
+
+
 
 
