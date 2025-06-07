@@ -21,9 +21,14 @@ OPENAI_API_KEY=sk-xxxxxxx
 ```
 ![OpenApiKey.jpg](readme/OpenApiKey.jpg)
 
-2. Run the command line in terminal.
+2. Run the command line on terminal.
 ```commandline
 $ make run-docker
+```
+
+3. Run the command line on Docker's terminal.
+```commandline
+$ pytest -v -s
 ```
 
 
