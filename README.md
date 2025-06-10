@@ -1,7 +1,8 @@
 # Software testing in OpenAI & Pytest
 
 ## Article
-_to be attached later ..._
+- English Version: https://medium.com/@shyinlim/boost-api-testing-efficiency-with-openai-and-pytest-d7ca2b4f574a
+- 中文版本: https://jkopay-sdet.medium.com/透過-openai-與-pytest-提升-api-測試效率-6c8dc92d5495
 
 ## Intro
 Integration of OpenAI with Pytest to automate API test generation.
