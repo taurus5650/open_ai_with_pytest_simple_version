@@ -1,7 +1,7 @@
 # Software testing in OpenAI & Pytest
 
 ## Article
-- English Version: https://medium.com/@shyinlim/boost-api-testing-efficiency-with-openai-and-pytest-d7ca2b4f574a
+- English Version: https://medium.com/@shyinlim/boost-api-testing-efficiency-with-openai-and-pytest-77e9cdb5b716
 - 中文版本: https://jkopay-sdet.medium.com/透過-openai-與-pytest-提升-api-測試效率-6c8dc92d5495
 
 ## Intro
